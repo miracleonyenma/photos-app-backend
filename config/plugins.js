@@ -2,16 +2,16 @@ module.exports = ({ env }) => ({
   //...
   upload: {
     config: {
-      provider: 'cloudinary',
+      provider: "cloudinary",
       providerOptions: {
-        cloud_name: env('CLOUDINARY_NAME'),
-        api_key: env('CLOUDINARY_KEY'),
-        api_secret: env('CLOUDINARY_SECRET'),
+        cloud_name: env("CLOUDINARY_NAME"),
+        api_key: env("CLOUDINARY_KEY"),
+        api_secret: env("CLOUDINARY_SECRET"),
       },
       actionOptions: {
         upload: {},
         uploadStream: {
-          folder: env('CLOUDINARY_FOLDER'),
+          folder: env("CLOUDINARY_FOLDER"),
         },
         delete: {},
       },
@@ -28,7 +28,7 @@ module.exports = ({ env }) => ({
     },
     enabled: true,
     config: {
-      enabledCollections:["api::post.post"],
+      enabledCollections: ["api::post.post"],
       badWords: false,
       moderatorRoles: ["Authenticated"],
       approvalFlow: ["api::post.post"],
@@ -46,7 +46,14 @@ module.exports = ({ env }) => ({
   },
   graphql: {
     config: {
+      endpoint: "/graphql",
+      shadowCRUD: true,
       playgroundAlways: true,
-    }
-  }
+      depthLimit: 7,
+      amountLimit: 100,
+      apolloServer: {
+        tracing: false,
+      },
+    },
+  },
 });
