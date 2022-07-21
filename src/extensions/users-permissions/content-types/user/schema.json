@@ -68,6 +68,44 @@
       "relation": "oneToMany",
       "target": "api::post.post",
       "mappedBy": "user"
+    },
+    "twitterUsername": {
+      "type": "string",
+      "unique": true
+    },
+    "websiteUrl": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "bio": {
+      "type": "text"
+    },
+    "profilePic": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "red",
+        "amber",
+        "blue",
+        "cyan",
+        "teal"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "username"
     }
   }
 }
