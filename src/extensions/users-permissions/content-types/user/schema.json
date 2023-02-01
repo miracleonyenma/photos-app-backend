@@ -78,20 +78,21 @@
     },
     "title": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "bio": {
       "type": "text"
     },
     "profilePic": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "color": {
       "type": "enumeration",
